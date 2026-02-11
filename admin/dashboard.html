@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanad Admin | Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-nav {
+            background: var(--bg-light);
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .admin-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .dashboard-content {
+            padding: 34px 0 50px;
+        }
+
+        .admin-toolbar {
+            display: grid;
+            grid-template-columns: 1.1fr repeat(4, minmax(130px, 1fr));
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .admin-toolbar input,
+        .admin-toolbar select {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            background: #fff;
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .stat-box {
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        .stat-box .label {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .stat-box .value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+
+        .status-banner {
+            display: none;
+            margin: 0 0 14px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            font-size: 0.92rem;
+        }
+
+        .status-banner.info {
+            background: #e8f1ff;
+            color: #175cd3;
+        }
+
+        .status-banner.error {
+            background: #ffecec;
+            color: #b42318;
+        }
+
+        .table-shell {
+            background: var(--bg-light);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 13px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            vertical-align: top;
+        }
+
+        th {
+            background: rgba(0, 71, 171, 0.08);
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        tr:hover {
+            background: rgba(0, 71, 171, 0.02);
+        }
+
+        tr.unread {
+            background: #f7fbff;
+        }
+
+        .message-cell {
+            max-width: 320px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .email-link {
+            color: #175cd3;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .status-pill.read {
+            color: #0f5132;
+            background: #d1f7e4;
+        }
+
+        .status-pill.unread {
+            color: #084298;
+            background: #cfe2ff;
+        }
+
+        .row-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            background: #fff;
+            color: #1f2937;
+            border-radius: 8px;
+            padding: 6px 9px;
+            font-size: 0.82rem;
+            cursor: pointer;
+        }
+
+        .action-btn:hover {
+            background: #f3f4f6;
+        }
+
+        .action-btn.danger {
+            border-color: #ef4444;
+            color: #b91c1c;
+            background: #fff5f5;
+        }
+
+        .pagination-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .pagination-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .page-meta {
+            color: var(--text-dim);
+            font-size: 0.88rem;
+        }
+
+        .muted-note {
+            margin-top: 10px;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 300;
+            padding: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-backdrop.open {
+            display: flex;
+        }
+
+        .modal-card {
+            width: 100%;
+            max-width: 720px;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+            padding: 20px;
+            max-height: 85vh;
+            overflow: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .modal-title {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .modal-body-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .meta-box {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            padding: 10px;
+            background: #fcfcfc;
+        }
+
+        .meta-box .label {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-bottom: 5px;
+        }
+
+        .modal-message {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            padding: 12px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-break: break-word;
+            background: #fcfcfc;
+        }
+
+        @media (max-width: 1100px) {
+            .admin-toolbar {
+                grid-template-columns: 1fr;
+            }
+
+            .table-shell {
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 1080px;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-body-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="admin-nav">
+        <div class="container">
+            <h3>Sanad Admin Panel</h3>
+            <button id="logoutBtn" class="btn-secondary" style="padding: 8px 20px; font-size: 0.9rem;">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container dashboard-content">
+        <h2>Received Messages</h2>
+        <p class="muted-note">Manage, filter, review, and delete contact form messages.</p>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="label">Total Messages</div>
+                <div class="value" id="totalCount">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="label">Unread Messages</div>
+                <div class="value" id="unreadCount">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="label">Last Sync</div>
+                <div class="value" id="lastSync" style="font-size: 1rem;">Never</div>
+            </div>
+        </div>
+
+        <div class="admin-toolbar">
+            <input id="searchInput" type="search" placeholder="Search by name, email, service, or message..." aria-label="Search messages">
+            <select id="serviceFilter" aria-label="Filter by service">
+                <option value="all">All Services</option>
+            </select>
+            <select id="readFilter" aria-label="Filter by status">
+                <option value="all">All Status</option>
+                <option value="unread">Unread</option>
+                <option value="read">Read</option>
+            </select>
+            <select id="sortBy" aria-label="Sort messages">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="name">Name A-Z</option>
+            </select>
+            <button id="clearFiltersBtn" class="btn-secondary" type="button">Clear Filters</button>
+        </div>
+
+        <div class="admin-actions">
+            <button id="refreshBtn" class="btn-primary" type="button">Refresh</button>
+            <button id="exportCsvBtn" class="btn-secondary" type="button">Export CSV</button>
+        </div>
+
+        <div id="statusBanner" class="status-banner" role="status"></div>
+
+        <div class="table-shell">
+            <table id="messagesTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Service</th>
+                        <th>Message</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="8" style="text-align: center;">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination-bar">
+            <div class="pagination-controls">
+                <button id="prevPageBtn" class="btn-secondary" type="button" style="padding: 8px 14px;">Prev</button>
+                <button id="nextPageBtn" class="btn-secondary" type="button" style="padding: 8px 14px;">Next</button>
+                <select id="pageSizeSelect" aria-label="Page size" style="padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.14);">
+                    <option value="10">10 / page</option>
+                    <option value="25">25 / page</option>
+                    <option value="50">50 / page</option>
+                </select>
+            </div>
+            <div id="pageMeta" class="page-meta">Page 1 of 1</div>
+        </div>
+    </div>
+
+    <div id="messageModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Message details">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title">Message Details</h3>
+                <button id="closeModalBtn" class="btn-secondary" type="button" style="padding: 6px 12px;">Close</button>
+            </div>
+            <div class="modal-body-grid">
+                <div class="meta-box">
+                    <div class="label">Name</div>
+                    <div id="modalName">-</div>
+                </div>
+                <div class="meta-box">
+                    <div class="label">Email</div>
+                    <div id="modalEmail">-</div>
+                </div>
+                <div class="meta-box">
+                    <div class="label">Service</div>
+                    <div id="modalService">-</div>
+                </div>
+                <div class="meta-box">
+                    <div class="label">Date</div>
+                    <div id="modalDate">-</div>
+                </div>
+            </div>
+            <div class="meta-box">
+                <div class="label">Message</div>
+                <div id="modalMessage" class="modal-message">-</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js" defer></script>
+</body>
+
+</html>
