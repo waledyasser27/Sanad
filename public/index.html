@@ -205,7 +205,7 @@
                 <!-- Why Us 1: Expert Team -->
                 <div class="interactive-card" onclick="this.classList.toggle('active')">
                     <div class="card-bg"
-                        style="background-image: url('https://placehold.co/600x800/003366/FFF?text=Team+Photo');"></div>
+                        style="background-image: url('images/integration.jpg');"></div>
                     <div class="card-overlay">
                         <div class="card-icon"><i class="fas fa-users"></i></div>
                         <div class="card-content">
@@ -221,7 +221,7 @@
                 <!-- Why Us 2: Innovation -->
                 <div class="interactive-card" onclick="this.classList.toggle('active')">
                     <div class="card-bg"
-                        style="background-image: url('https://placehold.co/600x800/0047AB/FFF?text=Innovation+Photo');">
+                        style="background-image: url('images/analytical.jpg');">
                     </div>
                     <div class="card-overlay">
                         <div class="card-icon"><i class="fas fa-rocket"></i></div>
@@ -238,7 +238,7 @@
                 <!-- Why Us 3: Client Centric -->
                 <div class="interactive-card" onclick="this.classList.toggle('active')">
                     <div class="card-bg"
-                        style="background-image: url('https://placehold.co/600x800/0056b3/FFF?text=Client+Photo');">
+                        style="background-image: url('images/scal.jpg');">
                     </div>
                     <div class="card-overlay">
                         <div class="card-icon"><i class="fas fa-handshake"></i></div>
@@ -268,10 +268,11 @@
                         <li style="margin-bottom: 20px; display: flex; align-items: center;"><i class="fas fa-envelope"
                                 style="margin-right: 15px;"></i> contact@sanad.com</li>
                         <li style="margin-bottom: 20px; display: flex; align-items: center;"><i class="fas fa-phone"
-                                style="margin-right: 15px;"></i> +123 456 7890</li>
+                                style="margin-right: 15px;"></i> <a href="tel:+966536782748">+966536782748</a></li>
+                        <li style="margin-bottom: 20px; display: flex; align-items: center;"><i class="fab fa-whatsapp"
+                                style="margin-right: 15px;"></i> <a href="https://wa.me/966536782748" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a></li>
                         <li style="margin-bottom: 20px; display: flex; align-items: center;"><i
-                                class="fas fa-map-marker-alt" style="margin-right: 15px;"></i> Tech Park, Business
-                            District</li>
+                                class="fas fa-map-marker-alt" style="margin-right: 15px;"></i> ALrawdah Jeddah</li>
                     </ul>
                 </div>
 
@@ -280,15 +281,19 @@
                     <form class="contact-form modern-form">
                         <div class="form-group">
                             <label data-i18n="form_name_label">Name</label>
-                            <input type="text" data-i18n-placeholder="form_name" required>
+                            <input type="text" name="name" data-i18n-placeholder="form_name" required>
                         </div>
                         <div class="form-group">
                             <label data-i18n="form_email_label">Email Address</label>
-                            <input type="email" data-i18n-placeholder="form_email" required>
+                            <input type="email" name="email" data-i18n-placeholder="form_email" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="form_phone_label">Phone Number</label>
+                            <input type="tel" name="phone" data-i18n-placeholder="form_phone" required>
                         </div>
                         <div class="form-group">
                             <label data-i18n="form_service_label">Service Interested In</label>
-                            <select>
+                            <select name="service">
                                 <option value="" data-i18n="form_select">Select Service</option>
                                 <option value="marketing">Marketing</option>
                                 <option value="web">Web Development</option>
@@ -299,7 +304,7 @@
                         </div>
                         <div class="form-group">
                             <label data-i18n="form_msg_label">Message</label>
-                            <textarea rows="4" data-i18n-placeholder="form_msg" required></textarea>
+                            <textarea rows="4" name="message" data-i18n-placeholder="form_msg" required></textarea>
                         </div>
                         <button type="submit" class="btn-primary full-width" data-i18n="form_btn"
                             style="border-radius: 6px;">Send Message</button>
@@ -315,12 +320,6 @@
             <div class="footer-content">
 
                 <p data-i18n="footer_rights">&copy; 2026 Sanad Business Development. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
             </div>
         </div>
     </footer>
