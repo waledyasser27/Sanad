@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanad | Business Development & Tech Solutions</title>
+    <meta name="description"
+        content="Sanad provides top-tier business development, marketing, and tech solutions including websites, apps, POS, and ERP systems.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cairo:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Custom CSS (after Bootstrap to override) -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hero-transparent.css">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo-container">
+                <img src="images/logo.jpeg" alt="SANAD" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+                <li><a href="#services" data-i18n="nav_services">Services</a></li>
+                <li><a href="#vision" data-i18n="nav_vision">Vision</a></li>
+                <li><a href="#why-us" data-i18n="nav_why_us">Why Us</a></li>
+                <li><a href="#contact" class="btn-primary" data-i18n="nav_contact">Contact Us</a></li>
+                <li>
+                    <button id="lang-toggle" class="lang-btn">
+                        <span class="lang-text">AR</span>
+                        <i class="fas fa-globe"></i>
+                    </button>
+                </li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 
+        ═══════════════════════════════════════════════════════════════
+        Hero Section - ضع صورتك الخلفية هنا
+        ═══════════════════════════════════════════════════════════════
+        لإضافة صورة خلفية:
+        1. ضع الصورة في مجلد: public/images/
+        2. اذهب إلى ملف: public/css/style.css
+        3. ابحث عن: .hero-section
+        4. غير background-image: url('images/اسم-الصورة.jpg')
+        ═══════════════════════════════════════════════════════════════
+    -->
+    <header id="home" class="hero hero-section">
+        <div class="container hero-content">
+            <div class="text-content">
+                <span class="subtitle animate-on-scroll" data-i18n="hero_subtitle">Elevate Your Business</span>
+                <h1 class="animate-on-scroll" data-i18n="hero_title">Transforming Ideas into <br> <span
+                        class="highlight">Digital Reality</span>
+                </h1>
+                <p class="animate-on-scroll" data-i18n="hero_desc">We are Sanad. Your partners in business development,
+                    marketing, and
+                    cutting-edge technology solutions.</p>
+                <div class="hero-btns animate-on-scroll">
+                    <a href="#contact" class="btn-primary" data-i18n="hero_btn_start">Get Started</a>
+                    <a href="#services" class="btn-secondary" data-i18n="hero_btn_services">Our Services</a>
+                </div>
+            </div>
+            <div class="hero-visual animate-on-scroll">
+                <div class="glow-circle"></div>
+                <!-- Abstract 3D shape or illustration representation via CSS/SVG -->
+                <div class="abstract-shape">
+                    <div class="shape s1"></div>
+                    <div class="shape s2"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="about_title">About Us</h2>
+                <div class="line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p data-i18n="about_p1">Sanad is a premier business development firm dedicated to empowering
+                        companies through innovative digital solutions. We bridge the gap between traditional business
+                        strategies and modern technology.</p>
+                    <p data-i18n="about_p2">From building robust brand identities to deploying complex ERP systems, our
+                        team of experts is committed to your growth and success.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="services_title">Our Domains</h2>
+                <p data-i18n="services_subtitle">Integrated solutions for complete business transformation</p>
+                <div class="line"></div>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1: Business Systems -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-server"></i></div>
+                    <h3 data-i18n="service_sys_title">Business Systems</h3>
+                    <p data-i18n="service_sys_desc">Loyalty & CRM, POS Systems, and comprehensive ERP solutions.</p>
+                    <div class="service-details">
+                        <p data-i18n="service_sys_detail">Full detail text about Business Systems...</p>
+                    </div>
+                </div>
+                <!-- Service 2: Analytics -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 data-i18n="service_analytics_title">Analytics & Decision Support</h3>
+                    <p data-i18n="service_analytics_desc">Interactive dashboards and BI layers to transform data into
+                        decisions.</p>
+                    <div class="service-details">
+                        <p data-i18n="service_analytics_detail">Full detail text about Analytics...</p>
+                    </div>
+                </div>
+                <!-- Service 3: Automation -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-robot"></i></div>
+                    <h3 data-i18n="service_auto_title">Automation & AI Agents</h3>
+                    <p data-i18n="service_auto_desc">Reducing manual work through automation and smart AI agents.</p>
+                    <div class="service-details">
+                        <p data-i18n="service_auto_detail">Full detail text about Automation...</p>
+                    </div>
+                </div>
+                <!-- Service 4: Mobile Apps -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 data-i18n="service_mobile_title">Mobile Apps & Integration</h3>
+                    <p data-i18n="service_mobile_desc">Smart mobile apps fully integrated with your operational systems.
+                    </p>
+                    <div class="service-details">
+                        <p data-i18n="service_mobile_detail">Full detail text about Mobile Apps...</p>
+                    </div>
+                </div>
+                <!-- Service 5: Marketing -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3 data-i18n="service_marketing_title">Marketing & Growth</h3>
+                    <p data-i18n="service_marketing_desc">Data-driven digital marketing strategies and performance
+                        analysis.</p>
+                    <div class="service-details">
+                        <p data-i18n="service_marketing_detail">Full detail text about Marketing...</p>
+                    </div>
+                </div>
+                <!-- Service 6: Development & QA -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3 data-i18n="service_dev_title">Development & QA</h3>
+                    <p data-i18n="service_dev_desc">Professional web development and rigorous software testing.</p>
+                    <div class="service-details">
+                        <p data-i18n="service_dev_detail">Full detail text about Dev & QA...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="section vision">
+        <div class="container">
+            <div class="vision-wrapper">
+                <div class="vision-content">
+                    <h2 data-i18n="vision_title">Our Vision</h2>
+                    <p data-i18n="vision_text">"To be the catalyst for digital innovation in the region, empowering
+                        businesses of all sizes to reach their full potential through technology and strategic
+                        development."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="section why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="why_title">Why Choose Sanad?</h2>
+                <div class="line"></div>
+            </div>
+            <div class="features-grid">
+                <!-- Why Us 1: Expert Team -->
+                <div class="interactive-card" onclick="this.classList.toggle('active')">
+                    <div class="card-bg"
+                        style="background-image: url('https://placehold.co/600x800/003366/FFF?text=Team+Photo');"></div>
+                    <div class="card-overlay">
+                        <div class="card-icon"><i class="fas fa-users"></i></div>
+                        <div class="card-content">
+                            <h3 data-i18n="why_expert_title">Expert Team</h3>
+                            <div class="card-info">
+                                <p data-i18n="why_expert_desc">A diverse team of seasoned developers, marketers, and
+                                    strategies committed to your success.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Why Us 2: Innovation -->
+                <div class="interactive-card" onclick="this.classList.toggle('active')">
+                    <div class="card-bg"
+                        style="background-image: url('https://placehold.co/600x800/0047AB/FFF?text=Innovation+Photo');">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-icon"><i class="fas fa-rocket"></i></div>
+                        <div class="card-content">
+                            <h3 data-i18n="why_innov_title">Innovation First</h3>
+                            <div class="card-info">
+                                <p data-i18n="why_innov_desc">We stay ahead of the curve, utilizing the latest
+                                    Artificial Intelligence and Cloud technologies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Why Us 3: Client Centric -->
+                <div class="interactive-card" onclick="this.classList.toggle('active')">
+                    <div class="card-bg"
+                        style="background-image: url('https://placehold.co/600x800/0056b3/FFF?text=Client+Photo');">
+                    </div>
+                    <div class="card-overlay">
+                        <div class="card-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="card-content">
+                            <h3 data-i18n="why_client_title">Client-Centric</h3>
+                            <div class="card-info">
+                                <p data-i18n="why_client_desc">Your success is our success. We work closely with you as
+                                    genuine partners at every step.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Left Side: Visual & Info -->
+                <div class="contact-visual">
+                    <h2 data-i18n="contact_title">Let's Work Together</h2>
+                    <p data-i18n="contact_desc">Ready to start your project? Contact us today for a free consultation.
+                    </p>
+                    <ul class="contact-details" style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 20px; display: flex; align-items: center;"><i class="fas fa-envelope"
+                                style="margin-right: 15px;"></i> contact@sanad.com</li>
+                        <li style="margin-bottom: 20px; display: flex; align-items: center;"><i class="fas fa-phone"
+                                style="margin-right: 15px;"></i> +123 456 7890</li>
+                        <li style="margin-bottom: 20px; display: flex; align-items: center;"><i
+                                class="fas fa-map-marker-alt" style="margin-right: 15px;"></i> Tech Park, Business
+                            District</li>
+                    </ul>
+                </div>
+
+                <!-- Right Side: Clean Form -->
+                <div class="contact-form-container">
+                    <form class="contact-form modern-form">
+                        <div class="form-group">
+                            <label data-i18n="form_name_label">Name</label>
+                            <input type="text" data-i18n-placeholder="form_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="form_email_label">Email Address</label>
+                            <input type="email" data-i18n-placeholder="form_email" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="form_service_label">Service Interested In</label>
+                            <select>
+                                <option value="" data-i18n="form_select">Select Service</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="web">Web Development</option>
+                                <option value="app">App Development</option>
+                                <option value="erp">ERP/POS Systems</option>
+                                <option value="branding">Branding</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="form_msg_label">Message</label>
+                            <textarea rows="4" data-i18n-placeholder="form_msg" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary full-width" data-i18n="form_btn"
+                            style="border-radius: 6px;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+
+                <p data-i18n="footer_rights">&copy; 2026 Sanad Business Development. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JavaScript Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

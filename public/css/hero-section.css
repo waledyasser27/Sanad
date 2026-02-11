@@ -1,0 +1,56 @@
+/* 
+═══════════════════════════════════════════════════════════════
+Hero Section - صورة الخلفية
+═══════════════════════════════════════════════════════════════
+لإضافة صورة خلفية كبيرة مثل المواقع الاحترافية:
+1. ضع صورتك في: public/images/hero-background.jpg
+2. غير السطر التالي: background-image: url('../images/hero-background.jpg')
+3. اختر صورة بجودة عالية (1920x1080 أو أكبر)
+═══════════════════════════════════════════════════════════════
+*/
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    /* ضع صورتك هنا - غير اسم الملف فقط */
+    background-image: linear-gradient(rgba(0, 20, 50, 0.7), rgba(0, 45, 98, 0.8)),
+        url('../images/sanadBG.jpg');
+    /* إذا لم تضع صورة، سيظهر تدرج أزرق فقط */
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Parallax effect */
+    background-repeat: no-repeat;
+    padding-top: 80px;
+    /* مساحة للهيدر */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 20, 50, 0.5);
+    /* طبقة شفافة داكنة فوق الصورة */
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+    /* فوق الطبقة الشفافة */
+}
+
+.hero-section .text-content h1,
+.hero-section .text-content p,
+.hero-section .subtitle {
+    color: white !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
