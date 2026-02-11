@@ -5,7 +5,7 @@ const crypto = require('crypto');
 const db = require('./database');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const SESSION_TTL_MS = 1000 * 60 * 60 * 12;
 const MAX_CONTACT_MESSAGE_LENGTH = 2000;
 const MAX_SEARCH_LENGTH = 120;
