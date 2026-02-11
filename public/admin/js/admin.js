@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api";
+const API_URL = "/api";
 const SESSION_STORAGE_KEY = "sanad.admin.session";
 const LEGACY_TOKEN_KEY = "adminToken";
 const REQUEST_TIMEOUT_MS = 12000;
